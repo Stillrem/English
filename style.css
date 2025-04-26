@@ -32,7 +32,9 @@ body {
   color: #000000;
 }
 
-.controls button, .buttons-group button, .sound-buttons button {
+.controls button,
+.buttons-group button,
+.sound-buttons button {
   margin: 5px;
   padding: 10px 14px;
   font-size: 16px;
@@ -41,6 +43,28 @@ body {
   background-color: #00cc66;
   color: #fff;
   cursor: pointer;
+  text-align: center;
+}
+
+.sound-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 360px;
+}
+
+.sound-buttons button {
+  flex: 1 0 30%;
+  margin: 5px;
+  min-width: 80px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: #00cc66;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
 }
 
 .settings-icon {
@@ -60,6 +84,7 @@ body {
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  z-index: 100;
 }
 
 .settings-menu.open {
@@ -73,7 +98,7 @@ body {
   height: 24px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -82,9 +107,12 @@ body {
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #ccc;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 24px;
 }
 
@@ -96,7 +124,7 @@ body {
   left: 3px;
   bottom: 3px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
