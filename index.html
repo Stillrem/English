@@ -5,103 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>English Sounds 1–45</title>
   <link rel="manifest" href="manifest.json">
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: #121212;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .card {
-      background: #1e1e1e;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      text-align: center;
-      max-width: 300px;
-    }
-    button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 18px;
-      border-radius: 8px;
-      border: none;
-      background-color: #00cc66;
-      color: #fff;
-      cursor: pointer;
-    }
-    .theme-switch {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #00cc66;
-      padding: 8px 12px;
-      border-radius: 6px;
-    }
-    .light-theme {
-      background-color: #ffffff;
-      color: #000000;
-    }
-    .light-theme .card {
-      background: #f0f0f0;
-      color: #000000;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="theme-switch">
-  <button onclick="toggleTheme()">Switch Theme</button>
+<!-- Шестерёнка -->
+<div class="settings-icon" onclick="toggleSettings()">⚙️</div>
+
+<!-- Меню настроек -->
+<div id="settings-menu" class="settings-menu">
+  <label class="switch">
+    <input type="checkbox" onchange="toggleTheme()">
+    <span class="slider"></span> Theme
+  </label>
 </div>
 
+<!-- Карточка -->
 <div class="card" id="card">
   Loading...
 </div>
 
-<div style="margin-top:20px;">
+<!-- Быстрые переходы по звукам -->
+<div id="sound-buttons" class="sound-buttons"></div>
+
+<!-- Кнопки перехода -->
+<div class="controls">
   <button onclick="prevCard()">Previous</button>
   <button onclick="nextCard()">Next</button>
 </div>
 
 <script src="cards.js"></script>
+<script src="main.js"></script>
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js');
   }
-
-  let current = 0;
-
-  function renderCard() {
-    const card = cards[current];
-    document.getElementById('card').innerHTML = `
-      <h2>${card.number}. ${card.ipa}</h2>
-      <p><strong>Example (EN):</strong> ${card.example_en}</p>
-      <p><strong>Example (RU):</strong> ${card.example_ru}</p>
-      <p><strong>Lifehack:</strong> ${card.lifehack}</p>
-    `;
-  }
-
-  function nextCard() {
-    current = (current + 1) % cards.length;
-    renderCard();
-  }
-
-  function prevCard() {
-    current = (current - 1 + cards.length) % cards.length;
-    renderCard();
-  }
-
-  function toggleTheme() {
-    document.body.classList.toggle('light-theme');
-  }
-
-  renderCard();
 </script>
 
 </body>
