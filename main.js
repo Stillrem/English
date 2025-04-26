@@ -13,6 +13,7 @@ function renderCard() {
       <button onclick="openTranscription()">Transcription</button>
     </div>
   `;
+  updateCardTheme();
 }
 
 function nextCard() {
@@ -40,6 +41,18 @@ function openTranscription() {
 
 function toggleTheme() {
   document.body.classList.toggle('light-theme');
+  updateCardTheme();
+}
+
+function updateCardTheme() {
+  const card = document.getElementById('card');
+  if (document.body.classList.contains('light-theme')) {
+    card.style.backgroundColor = '#ffffff';
+    card.style.color = '#000000';
+  } else {
+    card.style.backgroundColor = '#1e1e1e';
+    card.style.color = '#ffffff';
+  }
 }
 
 function toggleSettings() {
