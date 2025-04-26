@@ -62,9 +62,10 @@ function toggleSettings() {
 
 function createSoundButtons() {
   const container = document.getElementById('sound-buttons');
+  container.innerHTML = ''; // очищаем перед созданием
   cards.forEach((card, index) => {
     const btn = document.createElement('button');
-    btn.innerText = card.ipa;
+    btn.innerText = `${card.number}. ${card.ipa}`;
     btn.onclick = () => {
       current = index;
       renderCard();
