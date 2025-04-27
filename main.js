@@ -8,7 +8,7 @@ function renderCard() {
     <p><strong>Example (RU):</strong> ${card.example_ru}</p>
     <p><strong>Lifehack:</strong> ${card.lifehack}</p>
     <div class="buttons-group">
-      <button onclick="playAudio('${card.audio}')">▶️ Play</button>
+      <button onclick="playSound('${card.audio}')">▶️ Play</button>
       <button onclick="openYouglish('${card.ipa}')">Youglish</button>
       <button onclick="openTranscription()">Transcription</button>
     </div>
@@ -26,8 +26,8 @@ function prevCard() {
   renderCard();
 }
 
-function playAudio(path) {
-  const audio = new Audio(path);
+function playSound(filename) {
+  const audio = new Audio('sounds/' + filename);
   audio.play();
 }
 
@@ -55,14 +55,39 @@ function updateCardTheme() {
   }
 }
 
-function toggleSettings() {
-  const menu = document.getElementById('settings-menu');
-  menu.classList.toggle('open');
+function showSuggestions() {
+  const input = document.getElementById('wordInput').value.toLowerCase();
+  const suggestionsContainer = document.getElementById('suggestions');
+  const transcriptionContainer = document.getElementById('transcription');
+
+  suggestionsContainer.innerHTML = '';
+  transcriptionContainer.innerHTML = '';
+
+  if (input.length === 0) return;
+
+  const matches = Object.keys(dictionary).filter(word => word.startsWith(input));
+
+  if (matches.length === 0) {
+    transcriptionContainer.innerHTML = 'Word not found.';
+    return;
+  }
+
+  matches.slice(0, 5).forEach(word => {
+    const div = document.createElement('div');
+    div.className = 'suggestion';
+    div.textContent = word;
+    div.onclick = () => {
+      document.getElementById('wordInput').value = word;
+      transcriptionContainer.innerHTML = `Transcription: ${dictionary[word]}`;
+      suggestionsContainer.innerHTML = '';
+    };
+    suggestionsContainer.appendChild(div);
+  });
 }
 
 function createSoundButtons() {
   const container = document.getElementById('sound-buttons');
-  container.innerHTML = ''; // очищаем перед созданием
+  container.innerHTML = '';
   cards.forEach((card, index) => {
     const btn = document.createElement('button');
     btn.innerText = `${card.number}. ${card.ipa}`;
