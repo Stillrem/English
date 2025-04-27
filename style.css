@@ -113,3 +113,28 @@ header {
   color: #555;
 }
 /* -------------------------------------------- */
+
+/* --------- Новое: Подсказка при переходе на MyEFE --------- */
+.popup-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #00cc66;
+  color: #000000;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  animation: fadeOutPopup 2s forwards;
+}
+
+@keyframes fadeOutPopup {
+  0% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+/* ----------------------------------------------------------- */
