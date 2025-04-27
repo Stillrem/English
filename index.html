@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#000000"> <!-- Чёрная шапка на телефоне -->
   <title>English Sounds & Transcription Finder</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json"> <!-- Подключение манифеста для PWA -->
 </head>
 <body>
 
@@ -37,6 +38,18 @@
 <script src="words.js"></script>
 <script src="cards.js"></script>
 <script src="main.js"></script>
+
+<!-- Регистрация service worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(function(registration) {
+        console.log('Service Worker registered with scope:', registration.scope);
+      }).catch(function(error) {
+        console.log('Service Worker registration failed:', error);
+      });
+  }
+</script>
 
 </body>
 </html>
