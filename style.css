@@ -72,6 +72,10 @@ input[type="text"] {
   background-color: #00cc66;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+.controls button:hover, .buttons-group button:hover {
+  background-color: #00994d;
 }
 
 /* Кнопки звуков */
@@ -84,9 +88,10 @@ input[type="text"] {
 .sound-buttons button {
   flex: 1 0 30%;
   margin: 5px;
-  min-width: 80px;
+  min-width: 90px;
   padding: 8px;
   font-size: 14px;
+  border-radius: 8px;
 }
 
 /* Иконка настроек */
