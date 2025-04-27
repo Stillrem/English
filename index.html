@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#000000"> <!-- Чёрная шапка на телефоне -->
+  <meta name="theme-color" content="#000000">
   <title>English Sounds & Transcription Finder</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json"> <!-- Подключение манифеста для PWA -->
 </head>
 <body>
 
 <div class="container">
-  <!-- Переключатель темы (шестерёнка) -->
+  <!-- Шестерёнка -->
   <div class="settings-icon" onclick="toggleTheme()">⚙️</div>
 
   <h1>English Sounds & Transcription</h1>
 
-  <!-- Поле поиска слова -->
+  <!-- Поле поиска -->
   <input type="text" id="wordInput" placeholder="Enter a word..." oninput="showSuggestions()">
   <div id="suggestions"></div>
   <div id="transcription"></div>
@@ -32,6 +31,7 @@
 
   <!-- Кнопки всех звуков -->
   <div id="sound-buttons" class="sound-buttons"></div>
+
 </div>
 
 <!-- Скрипты -->
