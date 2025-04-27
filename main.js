@@ -4,6 +4,7 @@ function renderCard() {
   const card = cards[current];
   document.getElementById('card').innerHTML = `
     <h2>${card.number}. ${card.ipa}</h2>
+    <p class="transcription">${card.transcription}</p>
     <p><strong>Example (EN):</strong> ${card.example_en}</p>
     <p><strong>Example (RU):</strong> ${card.example_ru}</p>
     <p><strong>Lifehack:</strong> ${card.lifehack}</p>
