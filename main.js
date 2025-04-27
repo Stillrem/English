@@ -10,6 +10,7 @@ function renderCard() {
     <div class="buttons-group">
       <button onclick="playSound('${card.audio}')">▶️ Play</button>
       <button onclick="openYouglish('${card.ipa}')">Youglish</button>
+      <button onclick="openMyEFE('${card.ipa}')">MyEFE</button>
       <button onclick="openTranscription()">Transcription</button>
     </div>
   `;
@@ -34,6 +35,23 @@ function playSound(filename) {
 function openYouglish(ipa) {
   window.open(`https://youglish.com/pronounce/${ipa.replace(/\//g, '')}/english`, '_blank');
 }
+
+// === Новая функция для перехода на myefe.ru с подсказкой ===
+function openMyEFE(ipa) {
+  const cleanIPA = ipa.replace(/\[|\]/g, '');
+
+  const message = document.createElement('div');
+  message.className = 'popup-message';
+  message.innerText = `Ищи звук [${cleanIPA}] на странице myefe.ru`;
+
+  document.body.appendChild(message);
+
+  setTimeout(() => {
+    message.remove();
+    window.open(`https://myefe.ru/proiznoshenie-anglijskih-zvukov`, '_blank');
+  }, 2000);
+}
+// ============================================================
 
 function openTranscription() {
   window.open('https://english-abc.ru/transcription', '_blank');
