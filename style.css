@@ -1,14 +1,78 @@
 body {
+  background-color: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #121212;
-  color: #ffffff;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#wordInput {
+  margin: 10px;
+  padding: 8px;
+  width: 80%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+#card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 380px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.buttons-group {
+  margin-top: 20px;
+}
+
+.buttons-group button {
+  background-color: #00cc66;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttons-group button:hover {
+  background-color: #00aa55;
+}
+
+#sound-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  padding-top: 20px;
-  transition: 0.3s;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+#sound-buttons button {
+  background-color: #00cc66;
+  border: none;
+  color: white;
+  margin: 6px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  min-width: 70px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#sound-buttons button:hover {
+  background-color: #00aa55;
 }
 
 .light-theme {
@@ -16,89 +80,19 @@ body {
   color: #000000;
 }
 
-.container {
-  width: 90%;
-  max-width: 500px;
-  text-align: center;
+.light-theme #card {
+  background-color: #f0f0f0;
+  color: #000;
 }
 
-/* Поле ввода */
-input[type="text"] {
-  width: 100%;
-  padding: 12px;
-  margin: 15px 0;
-  border-radius: 8px;
-  border: none;
-  font-size: 18px;
-}
-
-/* Подсказки */
-#suggestions {
-  margin-top: 5px;
-}
 .suggestion {
-  background-color: #1e1e1e;
-  margin: 5px;
-  padding: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.suggestion:hover {
-  background-color: #00cc66;
-}
-
-/* Карточка звука */
-.card {
-  background: #1e1e1e;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.light-theme .card {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-/* Кнопки управления */
-.controls button, .buttons-group button {
-  margin: 5px;
-  padding: 10px 15px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: none;
-  background-color: #00cc66;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.controls button:hover, .buttons-group button:hover {
-  background-color: #00994d;
-}
-
-/* Кнопки звуков */
-.sound-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 360px;
-}
-.sound-buttons button {
-  flex: 1 0 30%;
-  margin: 5px;
-  min-width: 90px;
   padding: 8px;
-  font-size: 14px;
-  border-radius: 8px;
+  margin: 2px;
+  background: #333;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-/* Иконка настроек */
-.settings-icon {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  font-size: 26px;
-  cursor: pointer;
+.suggestion:hover {
+  background: #555;
 }
