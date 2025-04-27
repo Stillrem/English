@@ -42,6 +42,7 @@ function openTranscription() {
 function toggleTheme() {
   document.body.classList.toggle('light-theme');
   updateCardTheme();
+  updateSettingsIcon();
 }
 
 function updateCardTheme() {
@@ -52,6 +53,17 @@ function updateCardTheme() {
   } else {
     card.style.backgroundColor = '#1e1e1e';
     card.style.color = '#ffffff';
+  }
+}
+
+function updateSettingsIcon() {
+  const settingsIcon = document.querySelector('.settings-icon');
+  if (settingsIcon) {
+    if (document.body.classList.contains('light-theme')) {
+      settingsIcon.style.color = '#555';
+    } else {
+      settingsIcon.style.color = '#ccc';
+    }
   }
 }
 
@@ -102,4 +114,5 @@ function createSoundButtons() {
 window.onload = () => {
   createSoundButtons();
   renderCard();
+  updateSettingsIcon();
 };
