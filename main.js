@@ -36,22 +36,14 @@ function openYouglish(ipa) {
   window.open(`https://youglish.com/pronounce/${ipa.replace(/\//g, '')}/english`, '_blank');
 }
 
-// === Новая функция для перехода на myefe.ru с подсказкой ===
+// === Новая правильная функция перехода на myefe.ru ===
 function openMyEFE(ipa) {
-  const cleanIPA = ipa.replace(/\[|\]/g, '');
-
-  const message = document.createElement('div');
-  message.className = 'popup-message';
-  message.innerText = `Ищи звук [${cleanIPA}] на странице myefe.ru`;
-
-  document.body.appendChild(message);
-
-  setTimeout(() => {
-    message.remove();
-    window.open(`https://myefe.ru/proiznoshenie-anglijskih-zvukov`, '_blank');
-  }, 2000);
+  const cleanIPA = ipa.replace(/\//g, ''); // удаляем /
+  const encodedIPA = encodeURIComponent(cleanIPA); // кодируем для URL
+  const url = `https://myefe.ru/proiznoshenie-anglijskih-zvukov#${encodedIPA}`;
+  window.open(url, '_blank');
 }
-// ============================================================
+// ====================================================
 
 function openTranscription() {
   window.open('https://english-abc.ru/transcription', '_blank');
