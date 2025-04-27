@@ -36,11 +36,11 @@ function openYouglish(ipa) {
   window.open(`https://youglish.com/pronounce/${ipa.replace(/\//g, '')}/english`, '_blank');
 }
 
-// === Новая правильная функция перехода на myefe.ru ===
+// === Новая правильная функция перехода на СВОЮ страницу myefe.html ===
 function openMyEFE(ipa) {
-  const cleanIPA = ipa.replace(/\//g, ''); // удаляем /
+  const cleanIPA = ipa.replace(/\//g, ''); // удаляем слэши
   const encodedIPA = encodeURIComponent(cleanIPA); // кодируем для URL
-  const url = `https://myefe.ru/proiznoshenie-anglijskih-zvukov#${encodedIPA}`;
+  const url = `myefe.html#${encodedIPA}`; // путь к твоему локальному файлу
   window.open(url, '_blank');
 }
 // ====================================================
