@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
+  position: relative; /* Нужно для шестерёнки */
 }
 
 header {
@@ -96,3 +97,19 @@ header {
 .suggestion:hover {
   background: #555;
 }
+
+/* --------- Добавлено для шестерёнки --------- */
+.settings-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #ccc;
+  z-index: 999;
+}
+
+.light-theme .settings-icon {
+  color: #555;
+}
+/* -------------------------------------------- */
