@@ -3,44 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>English Sounds 1–45</title>
-  <link rel="manifest" href="manifest.json">
+  <title>English Sounds & Transcription Finder</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Шестерёнка -->
-<div class="settings-icon" onclick="toggleSettings()">⚙️</div>
+<div class="container">
+  <h1>English Sounds & Transcription</h1>
 
-<!-- Меню настроек -->
-<div id="settings-menu" class="settings-menu">
-  <label class="switch">
-    <input type="checkbox" onchange="toggleTheme()">
-    <span class="slider"></span> Theme
-  </label>
+  <!-- Поле поиска слова -->
+  <input type="text" id="wordInput" placeholder="Enter a word..." oninput="showSuggestions()">
+  <div id="suggestions"></div>
+  <div id="transcription"></div>
+
+  <!-- Карточка звука -->
+  <div id="card" class="card"></div>
+
+  <!-- Управление карточками -->
+  <div class="controls">
+    <button onclick="prevCard()">◀️ Prev</button>
+    <button onclick="nextCard()">Next ▶️</button>
+  </div>
+
+  <!-- Кнопки всех звуков -->
+  <div id="sound-buttons" class="sound-buttons"></div>
+
+  <!-- Переключатель темы -->
+  <div class="settings-icon" onclick="toggleTheme()">⚙️</div>
+
 </div>
 
-<!-- Карточка -->
-<div class="card" id="card">
-  Loading...
-</div>
-
-<!-- Быстрая навигация -->
-<div id="sound-buttons" class="sound-buttons"></div>
-
-<!-- Кнопки перехода -->
-<div class="controls">
-  <button onclick="prevCard()">Previous</button>
-  <button onclick="nextCard()">Next</button>
-</div>
-
+<!-- Скрипты -->
+<script src="words.js"></script>
 <script src="cards.js"></script>
 <script src="main.js"></script>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
-  }
-</script>
 
 </body>
 </html>
