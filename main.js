@@ -11,7 +11,7 @@ function renderCard() {
       <button onclick="playSound('${card.audio}')">▶️ Play</button>
       <button onclick="openYouglish('${card.ipa}')">Youglish</button>
       <button onclick="openMyEFE('${card.ipa}')">MyEFE</button>
-      <button onclick="openTranscription()">Transcription</button>
+      <button onclick="openTranscription()">Transcription english-abc</button>
     </div>
   `;
   updateCardTheme();
