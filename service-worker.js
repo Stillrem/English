@@ -1,23 +1,14 @@
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open('sounds-app-cache').then(cache => {
-      return cache.addAll([
-        './',
-        './index.html',
-        './style.css',
-        './main.js',
-        './cards.js',
-        './manifest.json',
-        './icon.png'
-      ]);
-    })
-  );
+  console.log('Service Worker installing.');
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', event => {
+  console.log('Service Worker activated.');
 });
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
+    fetch(event.request).catch(() => caches.match(event.request))
   );
 });
